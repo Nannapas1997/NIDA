@@ -1,0 +1,68 @@
+body {
+    background-color: #C9E6EE;
+    font-family: "Prompt", sans-serif;
+}
+.box {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}
+p {
+    margin-bottom: 0 !important;
+}
+.sign-up-text {
+    font-size: 3rem;
+    line-height: 72px;
+}
+.wrapper_2 {
+    padding: 3rem 0 3rem 0;
+}
+.step-text {
+    color: #0D5263;
+}
+.step {
+    border: 2px solid #0D5263;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.number {
+    font-size: 40px;
+    color: #0D5263;
+}
+.next-icon {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.step-gray-1, .step-gray-3, .step-gray-4, .number-gray{
+    color: #B6B6B6;
+}
+.step-gray-2 {
+    border: 2px solid #b6b6b6;
+}
+.detail {
+    background: linear-gradient(to right, #a0d8ef, #005f73);
+    color: #0D5263;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+.text-label {
+    font-size: 18px;
+    line-height: 24px;
+}
+.next-button {
+    background-color: #0D5263;
+    padding: 0.8rem 3rem;
+    margin-top: 2rem;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
