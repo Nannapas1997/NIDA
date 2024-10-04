@@ -37,7 +37,10 @@ p {
     padding-left: 3rem;
     padding-right: 3rem;
 }
-.step-gray-1, .step-gray-3, .step-gray-4, .number-gray{
+.number-gray {
+    font-size: 40px;
+}
+.step-gray-1, .step-gray-3, .number-gray{
     color: #B6B6B6;
 }
 .step-gray-2 {
@@ -65,10 +68,4 @@ p {
     border-radius: 8px;
     font-weight: bold;
     font-size: 16px;
-}
-.active {
-    color: #0D5263;
-}
-.inactive {
-    color: #B6B6B6;
 }

@@ -14,6 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="cropperjs/cropper.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="cropperjs/cropper.js"></script>
 </head>
 
@@ -24,153 +25,190 @@
     <div class="container box">
         <div class="container wrapper_2">
             <p class="sign-up-text">สมัครสมาชิก</p>
+            <div class="d-flex flex-row justify-content-center mb-5">
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="step-text step-text-1" >ขั้นตอนที่ 1</p>
+                        <div class="step d-flex justify-content-center align-items-center">
+                            <p class="number number-one">1</p>
+                        </div>
+                        <p class="step-text step-text-2">รายละเอียด</p>
+                        <p class="step-text step-text-3">ข้อมูลส่วนตัว</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="/images/Next.png" alt="next-img" class="next-icon">
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <p class=" step-gray-1 step-gray-text-1">ขั้นตอนที่ 2</p>
+                    <div class="step d-flex justify-content-center align-items-center step-gray-2">
+                        <p class="number-gray number-two">2</p>
+                    </div>
+                    <p class="step-gray-3 step-gray-text-2">รายละเอียด</p>
+                    <p class="step-gray-3 step-gray-text-2">ที่อยู่อาศัย</p>
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="/images/Next.png" alt="next-img" class="next-icon">
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <p class=" step-gray-1 step-gray-text-1">ขั้นตอนที่ 3</p>
+                    <div class="step d-flex justify-content-center align-items-center step-gray-2 ">
+                        <p class="number-gray number-three">3</p>
+                    </div>
+                    <p class="step-gray-3 step-gray-text-2">ตั้งค่าโปรไฟล์</p>
+                </div>
+            </div>
             <form action="" id="multiPageForm" enctype="multipart/form-data" class="form-data mt-5 mb-5">
-                <div class="d-flex flex-row justify-content-center mb-5">
-                    <div class="d-flex flex-row justify-content-center">
-                        <div class="d-flex flex-column align-items-center">
-                            <p class="step-text">ขั้นตอนที่ 1</p>
-                            <div class="step d-flex justify-content-center align-items-center" id="step-1">
-                                <p class="number">1</p>
+                <!-- page 1 -->
+                <div id="page1">
+                 
+                    <div class="detail">
+                        <p>รายละเอียดข้อมูลส่วนตัว</p>
+                    </div>
+                    <div class="mt-5 container">
+                        <label for="select_prefix" class="text-label mb-2">คำนำหน้าชื่อ</label>
+                        <select class="form-select" id="select_prefix">
+                            <option value="นาย">นาย</option>
+                            <option value="นาง">นาง</option>
+                            <option value="นางสาว">นางสาว</option>
+                        </select>
+                        <label for="first_name" class="text-label mb-2 mt-3">ชื่อ</label>
+                        <input id="first_name" class="form-control" type="text">
+                        <label for="last_name" class="text-label mb-2 mt-3">นามสกุล</label>
+                        <input id="last_name" class="form-control" type="text">
+                        <label for="prefix" class="text-label mb-2 mt-3">Prefix</label>
+                        <select class="form-select" id="prefix">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Ms.">Ms.</option>
+                        </select>
+                        <label for="First_name" class="text-label mb-2 mt-3">First Name</label>
+                        <input id="First_name" class="form-control" type="text">
+                        <label for="Last_name" class="text-label mb-2 mt-3">Last Name</label>
+                        <input id="Last_name" class="form-control" type="text">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <label for="nickname" class="text-label mb-2 mt-3">ชื่อเล่น</label>
+                                <input id="nickname" class="form-control" type="text">
                             </div>
-                            <p class="step-text">รายละเอียด</p>
-                            <p class="step-text">ข้อมูลส่วนตัว</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="/images/Next.png" alt="next-img" class="next-icon">
-                    </div>
-                    <div class="d-flex flex-column align-items-center">
-                        <p class="step-text step-gray-1">ขั้นตอนที่ 2</p>
-                        <div class="step d-flex justify-content-center align-items-center step-gray-2" id="step-2">
-                            <p class="number number-gray">2</p>
-                        </div>
-                        <p class="step-text step-gray-3">รายละเอียด</p>
-                        <p class="step-text step-gray-4">ที่อยู่อาศัย</p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="/images/Next.png" alt="next-img" class="next-icon">
-                    </div>
-                    <div class="d-flex flex-column align-items-center">
-                        <p class="step-text step-gray-1">ขั้นตอนที่ 3</p>
-                        <div class="step d-flex justify-content-center align-items-center step-gray-2 " id="step-3">
-                            <p class="number number-gray">3</p>
-                        </div>
-                        <p class="step-text step-gray-3">ตั้งค่าโปรไฟล์</p>
-                    </div>
-                </div>
-                <div class="detail">
-                    <p>รายละเอียดข้อมูลส่วนตัว</p>
-                </div>
-                <div class="mt-5 container">
-                    <label for="select_prefix" class="text-label mb-2">คำนำหน้าชื่อ</label>
-                    <select class="form-select" id="select_prefix">
-                        <option value="นาย">นาย</option>
-                        <option value="นาง">นาง</option>
-                        <option value="นางสาว">นางสาว</option>
-                    </select>
-                    <label for="first_name" class="text-label mb-2 mt-3">ชื่อ</label>
-                    <input id="first_name" class="form-control" type="text">
-                    <label for="last_name" class="text-label mb-2 mt-3">นามสกุล</label>
-                    <input id="last_name" class="form-control" type="text">
-                    <label for="prefix" class="text-label mb-2 mt-3">Prefix</label>
-                    <select class="form-select" id="prefix">
-                        <option value="Mr.">Mr.</option>
-                        <option value="Mrs.">Mrs.</option>
-                        <option value="Ms.">Ms.</option>
-                    </select>
-                    <label for="First_name" class="text-label mb-2 mt-3">First Name</label>
-                    <input id="First_name" class="form-control" type="text">
-                    <label for="Last_name" class="text-label mb-2 mt-3">Last Name</label>
-                    <input id="Last_name" class="form-control" type="text">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="nickname" class="text-label mb-2 mt-3">ชื่อเล่น</label>
-                            <input id="nickname" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="Nickname" class="text-label mb-2 mt-3">Nick Name</label>
-                            <input id="Nickname" class="form-control" type="text">
-                        </div>
-                    </div>
-                    <label for="birth_date" class="text-label mb-2 mt-3">วัน เดือน ปีเกิด</label>
-                    <input id="birth_date" class="form-control" type="date">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="year_old" class="text-label mb-2 mt-3">อายุ</label>
-                            <input id="year_old" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="gender" class="text-label mb-2 mt-3">เพศ</label>
-                            <select class="form-select" id="gender">
-                                <option value="ชาย">ชาย</option>
-                                <option value="หญิง">หญิง</option>
-                                <option value="อื่น ๆ">อื่น ๆ</option>
-                            </select>
-                        </div>
-                    </div>
-                    <label for="status" class="text-label mb-2 mt-3">สถานะภาพ</label>
-                    <select class="form-select" id="status">
-                        <option value="โสด">โสด</option>
-                        <option value="แต่งงาน">แต่งงาน</option>
-                        <option value="หย่า">หย่า</option>
-                        <option value="หย่า">แยกกันอยู่</option>
-                    </select>
-                    <label for="Email" class="text-label mb-2 mt-3">อีเมล</label>
-                    <input id="Email" class="form-control" type="email" placeholder="Example@gmail.com">
-                    <label for="phone-number" class="text-label mb-2 mt-3">เบอร์มือถือ</label>
-                    <input id="phone-number" class="form-control" type="text">
-                    <label for="id-line" class="text-label mb-2 mt-3">ID Line</label>
-                    <input id="id-line" class="form-control" type="text">
-                    <label for="sos-person" class="text-label mb-2 mt-3">บุคคลที่ติดต่อได้กรณีฉุกเฉิน</label>
-                    <input id="sos-person" class="form-control" type="text">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="relation" class="text-label mb-2 mt-3">ความสัมพันธ์</label>
-                            <input id="relation" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="phone-relation" class="text-label mb-2 mt-3">เบอร์โทรติดต่อ</label>
-                            <input id="phone-relation" class="form-control" type="text">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12"></div>
-                        <div class="col-md-6">
-                            <div class="d-flex justify-content-end">
-                                <button class="next-button">ไปต่อ</button>
+                            <div class="col-md-6 col-sm-12">
+                                <label for="Nickname" class="text-label mb-2 mt-3">Nick Name</label>
+                                <input id="Nickname" class="form-control" type="text">
                             </div>
                         </div>
+                        <label for="birth_date" class="text-label mb-2 mt-3">วัน เดือน ปีเกิด</label>
+                        <input id="birth_date" class="form-control" type="date">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <label for="year_old" class="text-label mb-2 mt-3">อายุ</label>
+                                <input id="year_old" class="form-control" type="text">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label for="gender" class="text-label mb-2 mt-3">เพศ</label>
+                                <select class="form-select" id="gender">
+                                    <option value="ชาย">ชาย</option>
+                                    <option value="หญิง">หญิง</option>
+                                    <option value="อื่น ๆ">อื่น ๆ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="status" class="text-label mb-2 mt-3">สถานะภาพ</label>
+                        <select class="form-select" id="status">
+                            <option value="โสด">โสด</option>
+                            <option value="แต่งงาน">แต่งงาน</option>
+                            <option value="หย่า">หย่า</option>
+                            <option value="หย่า">แยกกันอยู่</option>
+                        </select>
+                        <label for="Email" class="text-label mb-2 mt-3">อีเมล</label>
+                        <input id="Email" class="form-control" type="email" placeholder="Example@gmail.com">
+                        <label for="phone-number" class="text-label mb-2 mt-3">เบอร์มือถือ</label>
+                        <input id="phone-number" class="form-control" type="text">
+                        <label for="id-line" class="text-label mb-2 mt-3">ID Line</label>
+                        <input id="id-line" class="form-control" type="text">
+                        <label for="sos-person" class="text-label mb-2 mt-3">บุคคลที่ติดต่อได้กรณีฉุกเฉิน</label>
+                        <input id="sos-person" class="form-control" type="text">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <label for="relation" class="text-label mb-2 mt-3">ความสัมพันธ์</label>
+                                <input id="relation" class="form-control" type="text">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label for="phone-relation" class="text-label mb-2 mt-3">เบอร์โทรติดต่อ</label>
+                                <input id="phone-relation" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12"></div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="next-button" >ไปต่อ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- page 2 -->
+                <div id="page2">
+                    <div class="detail">
+                        <p>รายละเอียดที่อยู่อาศัย</p>
+                    </div>
+                    <div class="mt-5 container">
+                        <label for="address_now" class="text-label mb-2 mt-3">ที่อยู่ปัจจุบัน</label>
+                        <input id="address_now" class="form-control" type="text">
+                        <label for="khet" class="text-label mb-2 mt-3">เขต/อำเภอ</label>
+                        <input id="khet" class="form-control" type="text">
+                        <label for="tambol" class="text-label mb-2 mt-3">แขวง/ตำบล</label>
+                        <input id="tambol" class="form-control" type="text">
+                        <label for="province" class="text-label mb-2 mt-3">จังหวัด</label>
+                        <input id="province" class="form-control" type="text">
+                        <label for="postal_code" class="text-label mb-2 mt-3">รหัสไปรษณีย์</label>
+                        <input id="postal_code" class="form-control" type="text">
+                        <label for="country" class="text-label mb-2 mt-3">ประเทศ</label>
+                        <select class="form-select" id="country">
+                            <option value="Thailand">Thailand</option>
+                        </select>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+   
+     
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let currentStep = 1;
-            const totalSteps = 3;
-
-            document.getElementById('nextButton').addEventListener('click', function () {
-                if (currentStep < totalSteps) {
-                    // เปลี่ยนขั้นตอนปัจจุบันเป็น inactive
-                    document.getElementById(`step-${currentStep}`).classList.remove('active');
-                    document.getElementById(`step-${currentStep}`).classList.add('inactive');
-
-                    // เพิ่ม currentStep เพื่อไปยังขั้นตอนถัดไป
-                    currentStep++;
-
-                    // เปลี่ยนขั้นตอนใหม่เป็น active
-                    document.getElementById(`step-${currentStep}`).classList.remove('inactive');
-                    document.getElementById(`step-${currentStep}`).classList.add('active');
-                }
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initial setup - Show page 1 and hide page 2
+            document.getElementById('page1').style.display = 'block';
+            document.getElementById('page2').style.display = 'none';
+    
+            // Event listener for the "ถัดไป" button
+            document.querySelector(".next-button").addEventListener("click", function () {
+                // Hide page 1 and show page 2
+                document.getElementById('page1').style.display = 'none';
+                document.getElementById('page2').style.display = 'block';
             });
-
-            // ตั้งค่าเริ่มต้นให้ขั้นตอนที่ 1 เป็น active
-            document.getElementById(`step-1`).classList.add('active');
         });
-
     </script>
+    <script>
+        function validatePhoneNumber(event) {
+			const input = event.target;
+			const errorMessage = document.getElementById('error-message');
 
+			// Remove non-digit characters
+			input.value = input.value.replace(/[^0-9]/g, '');
+
+			// Show or hide error message based on length
+			if (input.value.length !== 10) {
+				errorMessage.style.display = 'block';
+			} else {
+				errorMessage.style.display = 'none';
+			}
+		}
+        // Attach event listeners
+		document.getElementById('phone-number').addEventListener('input', validatePhoneNumber);
+		document.getElementById('phone-relation').addEventListener('input', validatePhoneNumber);
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
