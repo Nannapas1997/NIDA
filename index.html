@@ -28,40 +28,40 @@
             <div class="d-flex flex-row justify-content-center mb-5">
                 <div class="d-flex flex-row justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                        <p class="step-text step-text-1" >ขั้นตอนที่ 1</p>
-                        <div class="step d-flex justify-content-center align-items-center">
-                            <p class="number number-one">1</p>
+                        <p class="step-text">ขั้นตอนที่ 1</p>
+                        <div class="step d-flex justify-content-center align-items-center" id="step-1">
+                            <p class="number">1</p>
                         </div>
-                        <p class="step-text step-text-2">รายละเอียด</p>
-                        <p class="step-text step-text-3">ข้อมูลส่วนตัว</p>
+                        <p class="step-text">รายละเอียด</p>
+                        <p class="step-text">ข้อมูลส่วนตัว</p>
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
-                    <img src="/images/Next.png" alt="next-img" class="next-icon">
+                    <img src="/images/Next.png" alt="next-img" class="next-icon" />
                 </div>
                 <div class="d-flex flex-column align-items-center">
-                    <p class=" step-gray-1 step-gray-text-1">ขั้นตอนที่ 2</p>
-                    <div class="step d-flex justify-content-center align-items-center step-gray-2">
-                        <p class="number-gray number-two">2</p>
+                    <p class="step-text step-gray">ขั้นตอนที่ 2</p>
+                    <div class="step d-flex justify-content-center align-items-center step-gray-2" id="step-2">
+                        <p class="number number-gray">2</p>
                     </div>
-                    <p class="step-gray-3 step-gray-text-2">รายละเอียด</p>
-                    <p class="step-gray-3 step-gray-text-2">ที่อยู่อาศัย</p>
+                    <p class="step-text step-gray">รายละเอียด</p>
+                    <p class="step-text step-gray">ที่อยู่อาศัย</p>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
-                    <img src="/images/Next.png" alt="next-img" class="next-icon">
+                    <img src="/images/Next.png" alt="next-img" class="next-icon" />
                 </div>
                 <div class="d-flex flex-column align-items-center">
-                    <p class=" step-gray-1 step-gray-text-1">ขั้นตอนที่ 3</p>
-                    <div class="step d-flex justify-content-center align-items-center step-gray-2 ">
-                        <p class="number-gray number-three">3</p>
+                    <p class="step-text step-gray">ขั้นตอนที่ 3</p>
+                    <div class="step d-flex justify-content-center align-items-center step-gray-2" id="step-3">
+                        <p class="number number-gray">3</p>
                     </div>
-                    <p class="step-gray-3 step-gray-text-2">ตั้งค่าโปรไฟล์</p>
+                    <p class="step-text step-gray">ตั้งค่าโปรไฟล์</p>
                 </div>
             </div>
             <form action="" id="multiPageForm" enctype="multipart/form-data" class="form-data mt-5 mb-5">
                 <!-- page 1 -->
                 <div id="page1">
-                 
+
                     <div class="detail">
                         <p>รายละเอียดข้อมูลส่วนตัว</p>
                     </div>
@@ -141,7 +141,7 @@
                             <div class="col-md-6 col-sm-12"></div>
                             <div class="col-md-6">
                                 <div class="d-flex justify-content-end">
-                                    <button type="button" class="next-button" >ไปต่อ</button>
+                                    <button type="button" class="next-button" id="next_button">ไปต่อ</button>
                                 </div>
                             </div>
                         </div>
@@ -174,14 +174,69 @@
             </form>
         </div>
     </div>
-   
-     
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentStep = 1;
+            const totalSteps = 3;
+
+            // Event listener สำหรับปุ่มถัดไป
+            document
+                .querySelector(".next-button")
+                .addEventListener("click", function (event) {
+                    event.preventDefault(); // ป้องกันการส่งฟอร์ม
+
+                    // ตรวจสอบว่า step ที่ปัจจุบันน้อยกว่าหรือเท่ากับจำนวนทั้งหมดหรือไม่
+                    if (currentStep < totalSteps) {
+                        // เปลี่ยน step ปัจจุบันให้เป็น inactive และเป็นสีเทา
+                        let currentStepElement = document.querySelector(
+                            '.step'
+                        );
+                
+                        currentStepElement.classList.add("step-gray-2");
+
+                        // เปลี่ยนสี text ของขั้นตอนที่ปัจจุบัน
+                        let currentStepText = document.querySelector(
+                            '.step-text'
+                        );
+                        if (currentStepText) {
+                            currentStepText.classList.add("step-gray");
+                        }
+
+                        let currentNumber = document.querySelector(
+                            '.number'
+                        );
+                        currentNumber.classList.add('number-gray');
+                        currentNumber.classList.remove('number');
+                        // เพิ่ม currentStep เพื่อนำไปที่ step ถัดไป
+                        currentStep++;
+
+                        // เปลี่ยน step ใหม่ให้เป็น active
+                        let nextStepElement = document.querySelector(
+                            '.step'
+                        );
+                        nextStepElement.classList.remove("step-gray-2");
+
+                        // เปลี่ยนสี text ของขั้นตอนถัดไป
+                        let nextStepText = document.querySelector(
+                            '.step-text'
+                        );
+                        nextStepText.classList.remove("step-gray");
+                    
+                        let nextNumber = document.querySelector(
+                            '.number'
+                        );
+                        nextNumber.classList.remove('number-gray');
+                    }
+                });
+        });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Initial setup - Show page 1 and hide page 2
             document.getElementById('page1').style.display = 'block';
             document.getElementById('page2').style.display = 'none';
-    
+
             // Event listener for the "ถัดไป" button
             document.querySelector(".next-button").addEventListener("click", function () {
                 // Hide page 1 and show page 2
@@ -192,22 +247,22 @@
     </script>
     <script>
         function validatePhoneNumber(event) {
-			const input = event.target;
-			const errorMessage = document.getElementById('error-message');
+            const input = event.target;
+            const errorMessage = document.getElementById('error-message');
 
-			// Remove non-digit characters
-			input.value = input.value.replace(/[^0-9]/g, '');
+            // Remove non-digit characters
+            input.value = input.value.replace(/[^0-9]/g, '');
 
-			// Show or hide error message based on length
-			if (input.value.length !== 10) {
-				errorMessage.style.display = 'block';
-			} else {
-				errorMessage.style.display = 'none';
-			}
-		}
+            // Show or hide error message based on length
+            if (input.value.length !== 10) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        }
         // Attach event listeners
-		document.getElementById('phone-number').addEventListener('input', validatePhoneNumber);
-		document.getElementById('phone-relation').addEventListener('input', validatePhoneNumber);
+        document.getElementById('phone-number').addEventListener('input', validatePhoneNumber);
+        document.getElementById('phone-relation').addEventListener('input', validatePhoneNumber);
     </script>
 
 

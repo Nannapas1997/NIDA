@@ -39,8 +39,9 @@ p {
 }
 .number-gray {
     font-size: 40px;
+    color: #B6B6B6;
 }
-.step-gray-1, .step-gray-3, .number-gray{
+.step-gray{
     color: #B6B6B6;
 }
 .step-gray-2 {
