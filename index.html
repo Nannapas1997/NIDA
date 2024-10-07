@@ -17,7 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -60,7 +61,7 @@
                     <p class="step-gray">ตั้งค่าโปรไฟล์</p>
                 </div>
             </div>
-            <form action="" id="multiPageForm" enctype="multipart/form-data" class="form-data mt-5 mb-5">
+            <form action="" id="multiPageForm" method="post" enctype="multipart/form-data" class="form-data mt-5 mb-5">
                 <!-- page 1 -->
                 <div id="page1">
 
@@ -68,75 +69,88 @@
                         <p>รายละเอียดข้อมูลส่วนตัว</p>
                     </div>
                     <div class="mt-5 container">
-                        <label for="select_prefix" class="text-label mb-2">คำนำหน้าชื่อ</label>
-                        <select class="form-select" id="select_prefix">
-                            <option value="นาย">นาย</option>
+                        <label for="select_prefix" class="text-label mb-2">คำนำหน้าชื่อ<sup
+                                style="color:red">*</sup></label>
+                        <select class="form-select" id="select_prefix" required>
+                            <option value="นาย" selected>นาย</option>
                             <option value="นาง">นาง</option>
                             <option value="นางสาว">นางสาว</option>
                         </select>
-                        <label for="first_name" class="text-label mb-2 mt-3">ชื่อ</label>
-                        <input id="first_name" class="form-control" type="text">
-                        <label for="last_name" class="text-label mb-2 mt-3">นามสกุล</label>
-                        <input id="last_name" class="form-control" type="text">
+                        <label for="first_name" class="text-label mb-2 mt-3">ชื่อ<sup style="color:red">*</sup></label>
+                        <input id="first_name" class="form-control" type="text" required>
+                        <label for="last_name" class="text-label mb-2 mt-3">นามสกุล<sup
+                                style="color:red">*</sup></label>
+                        <input id="last_name" class="form-control" type="text" required>
                         <label for="prefix" class="text-label mb-2 mt-3">Prefix</label>
-                        <select class="form-select" id="prefix">
-                            <option value="Mr.">Mr.</option>
+                        <select class="form-select" id="prefix" required>
+                            <option value="Mr." selected>Mr.</option>
                             <option value="Mrs.">Mrs.</option>
                             <option value="Ms.">Ms.</option>
                         </select>
-                        <label for="First_name" class="text-label mb-2 mt-3">First Name</label>
-                        <input id="First_name" class="form-control" type="text">
-                        <label for="Last_name" class="text-label mb-2 mt-3">Last Name</label>
-                        <input id="Last_name" class="form-control" type="text">
+                        <label for="First_name" class="text-label mb-2 mt-3">First Name<sup
+                                style="color:red">*</sup></label>
+                        <input id="First_name" class="form-control" type="text" required>
+                        <label for="Last_name" class="text-label mb-2 mt-3">Last Name<sup
+                                style="color:red">*</sup></label>
+                        <input id="Last_name" class="form-control" type="text" required>
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
-                                <label for="nickname" class="text-label mb-2 mt-3">ชื่อเล่น</label>
-                                <input id="nickname" class="form-control" type="text">
+                                <label for="nickname" class="text-label mb-2 mt-3">ชื่อเล่น<sup
+                                        style="color:red">*</sup></label>
+                                <input id="nickname" class="form-control" type="text" required>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <label for="Nickname" class="text-label mb-2 mt-3">Nick Name</label>
-                                <input id="Nickname" class="form-control" type="text">
+                                <label for="Nickname" class="text-label mb-2 mt-3">Nick Name<sup
+                                        style="color:red">*</sup></label>
+                                <input id="Nickname" class="form-control" type="text" required>
                             </div>
                         </div>
-                        <label for="birth_date" class="text-label mb-2 mt-3">วัน เดือน ปีเกิด</label>
-                        <input id="birth_date" class="form-control" type="date">
+                        <label for="birth_date" class="text-label mb-2 mt-3">วัน เดือน ปีเกิด<sup
+                                style="color:red">*</sup></label>
+                        <input id="birth_date" class="form-control" type="date" required>
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
-                                <label for="year_old" class="text-label mb-2 mt-3">อายุ</label>
-                                <input id="year_old" class="form-control" type="text">
+                                <label for="year_old" class="text-label mb-2 mt-3">อายุ<sup
+                                        style="color:red">*</sup></label>
+                                <input id="year_old" class="form-control" type="text" required>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <label for="gender" class="text-label mb-2 mt-3">เพศ</label>
-                                <select class="form-select" id="gender">
-                                    <option value="ชาย">ชาย</option>
+                                <label for="gender" class="text-label mb-2 mt-3">เพศ<sup
+                                        style="color:red">*</sup></label>
+                                <select class="form-select" id="gender" required>
+                                    <option value="ชาย" selected>ชาย</option>
                                     <option value="หญิง">หญิง</option>
                                     <option value="อื่น ๆ">อื่น ๆ</option>
                                 </select>
                             </div>
                         </div>
-                        <label for="status" class="text-label mb-2 mt-3">สถานะภาพ</label>
-                        <select class="form-select" id="status">
-                            <option value="โสด">โสด</option>
+                        <label for="status" class="text-label mb-2 mt-3">สถานะภาพ<sup style="color:red">*</sup></label>
+                        <select class="form-select" id="status" required>
+                            <option value="โสด" selected>โสด</option>
                             <option value="แต่งงาน">แต่งงาน</option>
                             <option value="หย่า">หย่า</option>
                             <option value="หย่า">แยกกันอยู่</option>
                         </select>
-                        <label for="Email" class="text-label mb-2 mt-3">อีเมล</label>
-                        <input id="Email" class="form-control" type="email" placeholder="Example@gmail.com">
-                        <label for="phone-number" class="text-label mb-2 mt-3">เบอร์มือถือ</label>
-                        <input id="phone-number" class="form-control" type="text">
-                        <label for="id-line" class="text-label mb-2 mt-3">ID Line</label>
-                        <input id="id-line" class="form-control" type="text">
-                        <label for="sos-person" class="text-label mb-2 mt-3">บุคคลที่ติดต่อได้กรณีฉุกเฉิน</label>
-                        <input id="sos-person" class="form-control" type="text">
+                        <label for="Email" class="text-label mb-2 mt-3">อีเมล<sup style="color:red">*</sup></label>
+                        <input id="Email" class="form-control" type="email" placeholder="Example@gmail.com" required>
+                        <label for="phone-number" class="text-label mb-2 mt-3">เบอร์มือถือ<sup
+                                style="color:red">*</sup></label>
+                        <input id="phone-number" class="form-control" type="text" required>
+                        <label for="id-line" class="text-label mb-2 mt-3">ID Line<sup style="color:red">*</sup></label>
+                        <input id="id-line" class="form-control" type="text" required>
+                        <label for="sos-person" class="text-label mb-2 mt-3">บุคคลที่ติดต่อได้กรณีฉุกเฉิน<sup
+                                style="color:red">*</sup></label>
+                        <input id="sos-person" class="form-control" type="text" required>
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
-                                <label for="relation" class="text-label mb-2 mt-3">ความสัมพันธ์</label>
-                                <input id="relation" class="form-control" type="text">
+                                <label for="relation" class="text-label mb-2 mt-3">ความสัมพันธ์<sup
+                                        style="color:red">*</sup></label>
+                                <input id="relation" class="form-control" type="text" required>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <label for="phone-relation" class="text-label mb-2 mt-3">เบอร์โทรติดต่อ</label>
-                                <input id="phone-relation" class="form-control" type="text">
+                                <label for="phone-relation" class="text-label mb-2 mt-3">เบอร์โทรติดต่อ<sup
+                                        style="color:red">*</sup></label>
+                                <input id="phone-relation" class="form-control" type="text" required>
                             </div>
                         </div>
                         <div class="row">
@@ -150,6 +164,87 @@
                     </div>
 
                 </div>
+                <script>
+                    $(document).ready(function () {
+
+                        // Event listener for the "ถัดไป" button on Page 1
+                        $('#next_button').on('click', function () {
+                            // Perform form validation before proceeding
+                            if (!validatePage1()) {
+                                // Initial setup - Show page 1 and hide page 2 and 3
+                                $('#page1').show();
+                                $('#page2').hide();
+                                $('#page3').hide();
+                                alert("กรุณากรอกข้อมูลในทุกช่องที่จำเป็น");
+                                $('#step-1 .step-text').css('color', '#0D5263');
+                                $('#step-1 .step').css('border', '2px solid #0D5263');
+                                $('#step-1 .number').css('color', '#0D5263');
+
+
+                                $('#step-2').prev().css('color', '#b6b6b6');
+                                $('#step-2').find('.number-gray').css('color', '#b6b6b6');
+                                $('#step-2').find('.step-gray').css('color', '#b6b6b6');
+                                $('#step-2').find('.step-gray-2').css('border', ' 2px solid #b6b6b6');
+                                return; // Stop further execution if validation fails
+                            } else {
+                                // If validation is successful, proceed to Page 2
+                                $('#page1').hide();
+                                $('#page2').show();
+                                $('#page3').hide();
+                                $('#step-1 .step-text').css('color', '#b6b6b6');
+                                $('#step-1 .step').css('border', '2px solid #b6b6b6');
+                                $('#step-1 .number').css('color', '#b6b6b6');
+
+                                // Change step 2 text color to blue
+                                $('#step-2').prev().css('color', '#0D5263');
+                                $('#step-2').find('.number-gray').css('color', '#0D5263');
+                                $('#step-2').find('.step-gray').css('color', '#0D5263');
+                                $('#step-2').find('.step-gray-2').css('border', ' 2px solid #0D5263');
+                            }
+                            
+                        });
+                        $('#next_button_2').on('click', function() {
+                            
+                        });
+                        // Validation function for Page 1
+                        function validatePage1() {
+                            let isValid = true;
+
+                            // Select all required input and select fields in Page 1
+                            $('#page1 input[required], #page1 select[required]').each(function () {
+                                if (!$(this).val().trim()) {
+                                    isValid = false;
+                                    // Optionally add a red border to highlight the empty field
+                                    $(this).css('border', '2px solid red');
+                                } else {
+                                    // Remove the red border if the field is valid
+                                    $(this).css('border', '');
+                                }
+                            });
+
+                            return isValid;
+                        }
+                        function validatePage2() {
+                            let isValid2 = true;
+
+                            // Select all required input and select fields in Page 1
+                            $('#page2 input[required], #page1 select[required]').each(function () {
+                                if (!$(this).val().trim()) {
+                                    isValid2 = false;
+                                    // Optionally add a red border to highlight the empty field
+                                    $(this).css('border', '2px solid red');
+                                } else {
+                                    // Remove the red border if the field is valid
+                                    $(this).css('border', '');
+                                }
+                            });
+
+                            return isValid2;
+                        }
+                    });
+                </script>
+
+
 
                 <!-- page 2 -->
                 <div id="page2">
@@ -157,19 +252,21 @@
                         <p>รายละเอียดที่อยู่อาศัย</p>
                     </div>
                     <div class="mt-5 container">
-                        <label for="address_now" class="text-label mb-2 mt-3">ที่อยู่ปัจจุบัน</label>
-                        <input id="address_now" class="form-control" type="text">
-                        <label for="khet" class="text-label mb-2 mt-3">เขต/อำเภอ</label>
-                        <input id="khet" class="form-control" type="text">
-                        <label for="tambol" class="text-label mb-2 mt-3">แขวง/ตำบล</label>
-                        <input id="tambol" class="form-control" type="text">
-                        <label for="province" class="text-label mb-2 mt-3">จังหวัด</label>
-                        <input id="province" class="form-control" type="text">
-                        <label for="postal_code" class="text-label mb-2 mt-3">รหัสไปรษณีย์</label>
-                        <input id="postal_code" class="form-control" type="text">
-                        <label for="country" class="text-label mb-2 mt-3">ประเทศ</label>
-                        <select class="form-select" id="country">
-                            <option value="Thailand" selected>Thailand</option>
+                        <label for="address_now" class="text-label mb-2 mt-3">ที่อยู่ปัจจุบัน<sup
+                                style="color:red">*</sup></label>
+                        <input id="address_now" class="form-control" type="text" required>
+                        <label for="khet" class="text-label mb-2 mt-3">เขต/อำเภอ<sup style="color:red">*</sup></label>
+                        <input id="khet" class="form-control" type="text" required>
+                        <label for="tambol" class="text-label mb-2 mt-3">แขวง/ตำบล<sup style="color:red">*</sup></label>
+                        <input id="tambol" class="form-control" type="text" required>
+                        <label for="province" class="text-label mb-2 mt-3">จังหวัด<sup style="color:red">*</sup></label>
+                        <input id="province" class="form-control" type="text" required>
+                        <label for="postal_code" class="text-label mb-2 mt-3">รหัสไปรษณีย์<sup
+                                style="color:red">*</sup></label>
+                        <input id="postal_code" class="form-control" type="text" required>
+                        <label for="country" class="text-label mb-2 mt-3">ประเทศ<sup style="color:red">*</sup></label>
+                        <select class="form-select" id="country" required>
+                            <option value="Thailand">Thailand</option>
                         </select>
                         <script>
                             const countries = [
@@ -209,7 +306,7 @@
                             });
                         </script>
                         <div class="mt-5">
-                            <span class="radio-inline">ที่อยู่ตามบัตรประชาชน</span>
+                            <span class="radio-inline">ที่อยู่ตามบัตรประชาชน<sup style="color:red">*</sup></span>
                             <label class="radio-inline" id="current-address">
                                 <input type="radio" name="optradio" checked class="ms-5 me-2">ที่อยู่เดียวกับปัจจุบัน
                             </label>
@@ -218,18 +315,24 @@
                             </label>
                         </div>
                         <div id="other-adrress-2">
-                            <label for="address" class="text-label mb-2 mt-3">ที่อยู่</label>
-                            <input id="address" class="form-control" type="text">
-                            <label for="khet_2" class="text-label mb-2 mt-3">เขต/อำเภอ</label>
-                            <input id="khet_2" class="form-control" type="text">
-                            <label for="tambol_2" class="text-label mb-2 mt-3">แขวง/ตำบล</label>
-                            <input id="tambol_2" class="form-control" type="text">
-                            <label for="province_2" class="text-label mb-2 mt-3">จังหวัด</label>
-                            <input id="province_2" class="form-control" type="text">
-                            <label for="postal_code_2" class="text-label mb-2 mt-3">รหัสไปรษณีย์</label>
-                            <input id="postal_code_2" class="form-control" type="text">
-                            <label for="country_2" class="text-label mb-2 mt-3">ประเทศ</label>
-                            <select class="form-select" id="country_2">
+                            <label for="address" class="text-label mb-2 mt-3">ที่อยู่<sup
+                                    style="color:red">*</sup></label>
+                            <input id="address" class="form-control" type="text" required>
+                            <label for="khet_2" class="text-label mb-2 mt-3">เขต/อำเภอ<sup
+                                    style="color:red">*</sup></label>
+                            <input id="khet_2" class="form-control" type="text" required>
+                            <label for="tambol_2" class="text-label mb-2 mt-3">แขวง/ตำบล<sup
+                                    style="color:red">*</sup></label>
+                            <input id="tambol_2" class="form-control" type="text" required>
+                            <label for="province_2" class="text-label mb-2 mt-3">จังหวัด<sup
+                                    style="color:red">*</sup></label>
+                            <input id="province_2" class="form-control" type="text" required>
+                            <label for="postal_code_2" class="text-label mb-2 mt-3">รหัสไปรษณีย์<sup
+                                    style="color:red">*</sup></label>
+                            <input id="postal_code_2" class="form-control" type="text" required>
+                            <label for="country_2" class="text-label mb-2 mt-3">ประเทศ<sup
+                                    style="color:red">*</sup></label>
+                            <select class="form-select" id="country_2" required>
                                 <option value="Thailand" selected>Thailand</option>
                             </select>
                             <script>
@@ -311,84 +414,148 @@
                     <div class="detail">
                         <p>อัพโหลดรูปภาพโปรไฟล์</p>
                     </div>
-                    <div class="mt-5 mb-5 container">
+                    <div id="crop-container" class="mt-5 mb-5 container">
                         <div class="d-flex flex-column align-items-center justify-content-center">
-                            <p class="profile-img-text">กรุณาเพิ่มรูปภาพโปรไฟล์ที่ต้องการ</p>
+                            <p class="profile-img-text">กรุณาเพิ่มรูปภาพโปรไฟล์ที่ต้องการ<sup style="color:red">*</sup>
+                            </p>
                             <div class="border-profile-img mt-3 mb-3 d-flex justify-content-center align-items-center">
-                                <button type="button" id="cropButton">
-                                     <img src="/images/image_preview.png" alt="image_preview" id="uploadPreview"  style="max-width: 100%; max-height: 280px;">
-                                </button>
+                                <!-- This will display the image to be cropped -->
+                                <img src="/images/image_preview.png" id="imageToCrop" alt="image_preview"
+                                    style="max-width: 100%; max-height: 280px; border-radius: 8px;">
                             </div>
-                            <p class="profile-img-max-size">Max file size should be 2MB**(gif,jpg,jpeg,png)</p>
+                            <p class="profile-img-max-size">Max file size should be 2MB**(gif, jpg, jpeg, png)</p>
                             <div class="mt-3 mb-3">
                                 <label class="custom-file-upload d-flex justify-content-center align-items-center">
                                     <input type="file" class="form-control" id="uploadImage" name="file"
-                                        onchange="PreviewImage();"
-                                        accept="image/gif, image/jpg, image/jpeg, image/png">
-                                    นำเข้า
+                                        onchange="loadImage();" accept="image/gif, image/jpg, image/jpeg, image/png"
+                                        required>
+                                    <span id="buttonLabel">นำเข้า</span>
                                 </label>
+                            </div>
+                            <button id="cropButton" class="btn btn-primary mt-3 mb-3" type="button"
+                                style="display:none;">ตัดรูป</button>
+                        </div>
+                        <div class="detail">
+                            <p>ตั้งค่าบัญชีผู้ใช้งาน</p>
+                        </div>
+                        <label for="username" class="text-label mb-2 mt-5">ชื่อผู้ใช้<sup
+                                style="color:red">*</sup></label>
+                        <input id="username" class="form-control" type="text" required>
+                        <label for="password" class="text-label mb-2 mt-3">รหัสผ่าน<sup
+                                style="color:red">*</sup></label>
+                        <input id="password" class="form-control" type="text" required>
+                        <label for="confirm_password" class="text-label mb-2 mt-3">ยืนยันรหัสผ่าน<sup
+                                style="color:red">*</sup></label>
+                        <input id="confirm_password" class="form-control" type="text" required>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12"></div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="prev-button" id="prev_button_2">ย้อนกลับ</button>
+                                    <button type="button" class="next-button" id="confirm_button">ยืนยัน</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <script type="text/javascript">
-                        function PreviewImage() {
-                            var file = document.getElementById("uploadImage").files[0];
+                        let cropper; // Variable to hold the Cropper instance
+
+                        function loadImage() {
+                            // Get the file input element and the selected file
+                            const fileInput = document.getElementById('uploadImage');
+                            const file = fileInput.files[0];
+
                             if (file) {
-                                var oFReader = new FileReader();
+                                // Create a FileReader to read the image
+                                const reader = new FileReader();
 
-                                oFReader.onload = function (oFREvent) {
-                                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+                                reader.onload = function (e) {
+                                    // Set the src of the image element to the uploaded image
+                                    const imageToCrop = document.getElementById('imageToCrop');
+                                    imageToCrop.src = e.target.result;
 
-                                    //Initialize Cropper after iamge is loaded
-                                    if(cropper) {
-                                        cropper.destroy(); //Destroy the previous cropper instance if it exists
+                                    // Initialize Cropper after image is loaded
+                                    if (cropper) {
+                                        cropper.destroy(); // Destroy the previous cropper instance if it exists
                                     }
-                                    cropper = new Cropper("uploadPreview", {
-                                        aspectRatio: 1,
+
+                                    cropper = new Cropper(imageToCrop, {
+                                        aspectRatio: 1, // Aspect ratio of 1 (can change to any other aspect ratio)
                                         viewMode: 1,
                                         autoCropArea: 1,
-                                        movable: true,
-                                        zoomable: true,
-                                        rotatable: true,
-                                        scalable: true
+                                        movable: true, // Allows moving the image around
+                                        zoomable: true, // Allows zooming
+                                        rotatable: true, // Allows rotating
+                                        scalable: true // Allows scaling
                                     });
+
+                                    // Change button label from "นำเข้า" to "ตัดรูป"
+                                    document.getElementById('cropButton').style.display = 'block'; // Show the "Crop" button
                                 };
-                                oFReader.readAsDataURL(file);
-                            } 
-                        }
-                        document.getElementById('cropButton').addEventListener('click', function() {
-                            if(cropper) {
-                                const canvas = cropper.getCroppedCanvas({
-                                    width: 280,
-                                    height: 280
-                                });
-                                //convert the canvas to an Image
-                                const croppedImageElement = document.getElementById('uploadPreview');
-                                croppedImageElement.src = canvas.toDataURL('image/png');
+
+                                reader.readAsDataURL(file); // Read the file as DataURL
                             }
-                        })
+                        }
+
+                        // Crop Image when "ตัดรูป" button is clicked
+                        document.getElementById('cropButton').addEventListener('click', function (event) {
+                            event.preventDefault(); // Prevent any default form action or page refresh
+                            if (cropper) {
+                                const canvas = cropper.getCroppedCanvas({
+                                    width: 280, // Final output width (change as needed)
+                                    height: 280 // Final output height (change as needed)
+                                });
+
+                                // Convert the canvas to an image and replace the preview
+                                const imageToCrop = document.getElementById('imageToCrop');
+                                imageToCrop.src = canvas.toDataURL('image/png');
+
+                                // Destroy the cropper instance to avoid re-cropping
+                                cropper.destroy();
+                                cropper = null;
+
+                                // Hide the crop button after cropping
+                                document.getElementById('cropButton').style.display = 'none';
+
+                                // Change button label back if needed (optional)
+                                document.getElementById('buttonLabel').textContent = 'นำเข้า';
+                            }
+                        });
                     </script>
-                    <div class="detail">
-                        <p>ตั้งค่าบัญชีผู้ใช้งาน</p>
-                    </div>
+
                 </div>
             </form>
         </div>
     </div>
     <script>
         $(document).ready(function () {
-            $('#next_button').click(function () {
-                // Change step 1 text color to gray
-                $('#step-1 .step-text').css('color', '#b6b6b6');
-                $('#step-1 .step').css('border', '2px solid #b6b6b6');
-                $('#step-1 .number').css('color', '#b6b6b6');
+            // $('#next_button').click(function () {
+            //     // Change step 1 text color to gray
 
-                // Change step 2 text color to blue
-                $('#step-2').prev().css('color', '#0D5263');
-                $('#step-2').find('.number-gray').css('color', '#0D5263');
-                $('#step-2').find('.step-gray').css('color', '#0D5263');
-                $('#step-2').find('.step-gray-2').css('border', ' 2px solid #0D5263');
-            });
+
+            //         $('#step-1 .step-text').css('color', '#0D5263');
+            //         $('#step-1 .step').css('border', '2px solid #0D5263');
+            //         $('#step-1 .number').css('color', '#0D5263');
+
+
+            //         $('#step-2').prev().css('color', '#b6b6b6');
+            //         $('#step-2').find('.number-gray').css('color', '#b6b6b6');
+            //         $('#step-2').find('.step-gray').css('color', '#b6b6b6');
+            //         $('#step-2').find('.step-gray-2').css('border', ' 2px solid #b6b6b6');
+
+
+
+            //         $('#step-1 .step-text').css('color', '#b6b6b6');
+            //         $('#step-1 .step').css('border', '2px solid #b6b6b6');
+            //         $('#step-1 .number').css('color', '#b6b6b6');
+
+            //         // Change step 2 text color to blue
+            //         $('#step-2').prev().css('color', '#0D5263');
+            //         $('#step-2').find('.number-gray').css('color', '#0D5263');
+            //         $('#step-2').find('.step-gray').css('color', '#0D5263');
+            //         $('#step-2').find('.step-gray-2').css('border', ' 2px solid #0D5263');
+            // });
             $('#prev_button').click(function () {
                 // Change step 1 text color to gray
                 $('#step-1 .step-text').css('color', '#0D5263');
@@ -413,39 +580,60 @@
                 $('#step-3').find('.step-gray').css('color', '#0D5263');
                 $('#step-3').find('.step-gray-2').css('border', ' 2px solid #0D5263');
             });
+            $('#prev_button_2').click(function () {
+                $('#step-3 .step-gray').css('color', '#b6b6b6');
+                $('#step-3 .step-gray-2').css('border', '2px solid #b6b6b6');
+                $('#step-3 .number-gray').css('color', '#b6b6b6');
+
+                // Change step 3 text color to blue
+                $('#step-2').prev().css('color', '#0D5263');
+                $('#step-2').find('.number-gray').css('color', '#0D5263');
+                $('#step-2').find('.step-gray').css('color', '#0D5263');
+                $('#step-2').find('.step-gray-2').css('border', ' 2px solid #0D5263');
+            });
         });
 
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Initial setup - Show page 1 and hide page 2
+            // Initial setup - Show page 1 and hide page 2 and 3
             document.getElementById('page1').style.display = 'block';
             document.getElementById('page2').style.display = 'none';
             document.getElementById('page3').style.display = 'none';
-            // Event listener for the "ถัดไป" button
+
+            // Event listener for the "ถัดไป" button on Page 1
             document.querySelector(".next-button").addEventListener("click", function () {
                 document.getElementById('page1').style.display = 'none';
                 document.getElementById('page2').style.display = 'block';
                 document.getElementById('page3').style.display = 'none';
             });
+
+            // Event listener for the "ถัดไป" button on Page 2
             document.getElementById('next_button_2').addEventListener("click", function () {
                 document.getElementById('page1').style.display = 'none';
                 document.getElementById('page2').style.display = 'none';
                 document.getElementById('page3').style.display = 'block';
-            })
+            });
+
+            // Event listener for the "ย้อนกลับ" button on Page 2
             document.getElementById('prev_button').addEventListener("click", function () {
-                // Check which page is currently displayed and navigate back
-                if (document.getElementById('page3').style.display === 'block') {
-                    // If currently on page 3, go back to page 2
-                    document.getElementById('page3').style.display = 'none';
-                    document.getElementById('page2').style.display = 'block';
-                    document.getElementById('page1').style.display = 'none';
-                } else if (document.getElementById('page2').style.display === 'block') {
-                    // If currently on page 2, go back to page 1
-                    document.getElementById('page2').style.display = 'none';
-                    document.getElementById('page1').style.display = 'block';
-                    document.getElementById('page3').style.display = 'none';
-                }
+                document.getElementById('page2').style.display = 'none';
+                document.getElementById('page1').style.display = 'block';
+                document.getElementById('page3').style.display = 'none';
+            });
+
+            // Event listener for the "ย้อนกลับ" button on Page 3
+            document.getElementById('prev_button_2').addEventListener("click", function () {
+                document.getElementById('page3').style.display = 'none';
+                document.getElementById('page2').style.display = 'block';
+                document.getElementById('page1').style.display = 'none';
+            });
+
+            // Event listener for the "ยืนยัน" button on Page 3 (Confirm Form)
+            document.getElementById('confirm_button').addEventListener("click", function () {
+                // Simulate form submission (change as needed)
+                alert("Form is being submitted.");
+                document.getElementById('multiPageForm').submit(); // Assuming there is a form with this ID
             });
         });
     </script>
