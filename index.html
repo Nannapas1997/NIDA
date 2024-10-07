@@ -15,7 +15,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="cropperjs/cropper.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="cropperjs/cropper.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -27,9 +29,9 @@
             <p class="sign-up-text">สมัครสมาชิก</p>
             <div class="d-flex flex-row justify-content-center mb-5">
                 <div class="d-flex flex-row justify-content-center">
-                    <div class="d-flex flex-column align-items-center">
+                    <div class="d-flex flex-column align-items-center" id="step-1">
                         <p class="step-text">ขั้นตอนที่ 1</p>
-                        <div class="step d-flex justify-content-center align-items-center" id="step-1">
+                        <div class="step d-flex justify-content-center align-items-center">
                             <p class="number">1</p>
                         </div>
                         <p class="step-text">รายละเอียด</p>
@@ -39,23 +41,23 @@
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="/images/Next.png" alt="next-img" class="next-icon" />
                 </div>
-                <div class="d-flex flex-column align-items-center">
-                    <p class="step-text step-gray">ขั้นตอนที่ 2</p>
-                    <div class="step d-flex justify-content-center align-items-center step-gray-2" id="step-2">
-                        <p class="number number-gray">2</p>
+                <div class="d-flex flex-column align-items-center" id="step-2">
+                    <p class="step-gray">ขั้นตอนที่ 2</p>
+                    <div class="d-flex justify-content-center align-items-center step-gray-2">
+                        <p class=" number-gray">2</p>
                     </div>
-                    <p class="step-text step-gray">รายละเอียด</p>
-                    <p class="step-text step-gray">ที่อยู่อาศัย</p>
+                    <p class="step-gray">รายละเอียด</p>
+                    <p class="step-gray">ที่อยู่อาศัย</p>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="/images/Next.png" alt="next-img" class="next-icon" />
                 </div>
-                <div class="d-flex flex-column align-items-center">
-                    <p class="step-text step-gray">ขั้นตอนที่ 3</p>
-                    <div class="step d-flex justify-content-center align-items-center step-gray-2" id="step-3">
-                        <p class="number number-gray">3</p>
+                <div class="d-flex flex-column align-items-center" id="step-3">
+                    <p class="step-gray">ขั้นตอนที่ 3</p>
+                    <div class="d-flex justify-content-center align-items-center step-gray-2"">
+                        <p class=" number-gray">3</p>
                     </div>
-                    <p class="step-text step-gray">ตั้งค่าโปรไฟล์</p>
+                    <p class="step-gray">ตั้งค่าโปรไฟล์</p>
                 </div>
             </div>
             <form action="" id="multiPageForm" enctype="multipart/form-data" class="form-data mt-5 mb-5">
@@ -167,81 +169,283 @@
                         <input id="postal_code" class="form-control" type="text">
                         <label for="country" class="text-label mb-2 mt-3">ประเทศ</label>
                         <select class="form-select" id="country">
-                            <option value="Thailand">Thailand</option>
+                            <option value="Thailand" selected>Thailand</option>
                         </select>
+                        <script>
+                            const countries = [
+                                "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia",
+                                "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium",
+                                "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria",
+                                "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad",
+                                "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the",
+                                "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+                                "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+                                "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala",
+                                "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran",
+                                "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+                                "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia",
+                                "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta",
+                                "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro",
+                                "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger",
+                                "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru",
+                                "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia",
+                                "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia",
+                                "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa",
+                                "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan",
+                                "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+                                "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu",
+                                "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+                            ];
+
+                            const countrySelect = document.getElementById('country');
+                            countries.forEach(function (country) {
+                                const option = document.createElement('option');
+                                option.value = country;
+                                option.textContent = country;
+                                if (country === "Thailand") {
+                                    option.selected = true; // Set "Thailand" as the selected option
+                                }
+                                countrySelect.appendChild(option);
+                            });
+                        </script>
+                        <div class="mt-5">
+                            <span class="radio-inline">ที่อยู่ตามบัตรประชาชน</span>
+                            <label class="radio-inline" id="current-address">
+                                <input type="radio" name="optradio" checked class="ms-5 me-2">ที่อยู่เดียวกับปัจจุบัน
+                            </label>
+                            <label class="radio-inline" id="other-address">
+                                <input type="radio" name="optradio" class="ms-5 me-2">ที่อยู่อื่น
+                            </label>
+                        </div>
+                        <div id="other-adrress-2">
+                            <label for="address" class="text-label mb-2 mt-3">ที่อยู่</label>
+                            <input id="address" class="form-control" type="text">
+                            <label for="khet_2" class="text-label mb-2 mt-3">เขต/อำเภอ</label>
+                            <input id="khet_2" class="form-control" type="text">
+                            <label for="tambol_2" class="text-label mb-2 mt-3">แขวง/ตำบล</label>
+                            <input id="tambol_2" class="form-control" type="text">
+                            <label for="province_2" class="text-label mb-2 mt-3">จังหวัด</label>
+                            <input id="province_2" class="form-control" type="text">
+                            <label for="postal_code_2" class="text-label mb-2 mt-3">รหัสไปรษณีย์</label>
+                            <input id="postal_code_2" class="form-control" type="text">
+                            <label for="country_2" class="text-label mb-2 mt-3">ประเทศ</label>
+                            <select class="form-select" id="country_2">
+                                <option value="Thailand" selected>Thailand</option>
+                            </select>
+                            <script>
+                                const countries_2 = [
+                                    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia",
+                                    "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium",
+                                    "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria",
+                                    "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad",
+                                    "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the",
+                                    "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+                                    "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+                                    "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala",
+                                    "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran",
+                                    "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+                                    "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia",
+                                    "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta",
+                                    "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro",
+                                    "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger",
+                                    "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru",
+                                    "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia",
+                                    "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia",
+                                    "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa",
+                                    "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan",
+                                    "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+                                    "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu",
+                                    "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+                                ];
+
+                                const countrySelect_2 = document.getElementById('country_2');
+                                countries.forEach(function (country_2) {
+                                    const option = document.createElement('option');
+                                    option.value = country_2;
+                                    option.textContent = country_2;
+                                    if (country_2 === "Thailand") {
+                                        option.selected = true; // Set "Thailand" as the selected option
+                                    }
+                                    countrySelect_2.appendChild(option);
+                                });
+                            </script>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    // Get the radio buttons and the address div
+                                    const currentAddressRadio = document.querySelector('#current-address input[type="radio"]');
+                                    const otherAddressRadio = document.querySelector('#other-address input[type="radio"]');
+                                    const otherAddressDiv = document.getElementById('other-adrress-2');
+
+                                    // Initially hide the "other address" div
+                                    otherAddressDiv.style.display = 'none';
+
+                                    // Add event listeners to the radio buttons
+                                    currentAddressRadio.addEventListener('change', function () {
+                                        if (currentAddressRadio.checked) {
+                                            otherAddressDiv.style.display = 'none';
+                                        }
+                                    });
+
+                                    otherAddressRadio.addEventListener('change', function () {
+                                        if (otherAddressRadio.checked) {
+                                            otherAddressDiv.style.display = 'block';
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12"></div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="prev-button" id="prev_button">ย้อนกลับ</button>
+                                    <button type="button" class="next-button" id="next_button_2">ไปต่อ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- page 3 -->
+                <div id="page3">
+                    <div class="detail">
+                        <p>อัพโหลดรูปภาพโปรไฟล์</p>
+                    </div>
+                    <div class="mt-5 mb-5 container">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <p class="profile-img-text">กรุณาเพิ่มรูปภาพโปรไฟล์ที่ต้องการ</p>
+                            <div class="border-profile-img mt-3 mb-3 d-flex justify-content-center align-items-center">
+                                <button type="button" id="cropButton">
+                                     <img src="/images/image_preview.png" alt="image_preview" id="uploadPreview"  style="max-width: 100%; max-height: 280px;">
+                                </button>
+                            </div>
+                            <p class="profile-img-max-size">Max file size should be 2MB**(gif,jpg,jpeg,png)</p>
+                            <div class="mt-3 mb-3">
+                                <label class="custom-file-upload d-flex justify-content-center align-items-center">
+                                    <input type="file" class="form-control" id="uploadImage" name="file"
+                                        onchange="PreviewImage();"
+                                        accept="image/gif, image/jpg, image/jpeg, image/png">
+                                    นำเข้า
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        function PreviewImage() {
+                            var file = document.getElementById("uploadImage").files[0];
+                            if (file) {
+                                var oFReader = new FileReader();
+
+                                oFReader.onload = function (oFREvent) {
+                                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+
+                                    //Initialize Cropper after iamge is loaded
+                                    if(cropper) {
+                                        cropper.destroy(); //Destroy the previous cropper instance if it exists
+                                    }
+                                    cropper = new Cropper("uploadPreview", {
+                                        aspectRatio: 1,
+                                        viewMode: 1,
+                                        autoCropArea: 1,
+                                        movable: true,
+                                        zoomable: true,
+                                        rotatable: true,
+                                        scalable: true
+                                    });
+                                };
+                                oFReader.readAsDataURL(file);
+                            } 
+                        }
+                        document.getElementById('cropButton').addEventListener('click', function() {
+                            if(cropper) {
+                                const canvas = cropper.getCroppedCanvas({
+                                    width: 280,
+                                    height: 280
+                                });
+                                //convert the canvas to an Image
+                                const croppedImageElement = document.getElementById('uploadPreview');
+                                croppedImageElement.src = canvas.toDataURL('image/png');
+                            }
+                        })
+                    </script>
+                    <div class="detail">
+                        <p>ตั้งค่าบัญชีผู้ใช้งาน</p>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let currentStep = 1;
-            const totalSteps = 3;
+        $(document).ready(function () {
+            $('#next_button').click(function () {
+                // Change step 1 text color to gray
+                $('#step-1 .step-text').css('color', '#b6b6b6');
+                $('#step-1 .step').css('border', '2px solid #b6b6b6');
+                $('#step-1 .number').css('color', '#b6b6b6');
 
-            // Event listener สำหรับปุ่มถัดไป
-            document
-                .querySelector(".next-button")
-                .addEventListener("click", function (event) {
-                    event.preventDefault(); // ป้องกันการส่งฟอร์ม
+                // Change step 2 text color to blue
+                $('#step-2').prev().css('color', '#0D5263');
+                $('#step-2').find('.number-gray').css('color', '#0D5263');
+                $('#step-2').find('.step-gray').css('color', '#0D5263');
+                $('#step-2').find('.step-gray-2').css('border', ' 2px solid #0D5263');
+            });
+            $('#prev_button').click(function () {
+                // Change step 1 text color to gray
+                $('#step-1 .step-text').css('color', '#0D5263');
+                $('#step-1 .step').css('border', '2px solid #0D5263');
+                $('#step-1 .number').css('color', '#0D5263');
 
-                    // ตรวจสอบว่า step ที่ปัจจุบันน้อยกว่าหรือเท่ากับจำนวนทั้งหมดหรือไม่
-                    if (currentStep < totalSteps) {
-                        // เปลี่ยน step ปัจจุบันให้เป็น inactive และเป็นสีเทา
-                        let currentStepElement = document.querySelector(
-                            '.step'
-                        );
-                
-                        currentStepElement.classList.add("step-gray-2");
+                // Change step 2 text color to blue
+                $('#step-2').prev().css('color', '#b6b6b6');
+                $('#step-2').find('.number-gray').css('color', '#b6b6b6');
+                $('#step-2').find('.step-gray').css('color', '#b6b6b6');
+                $('#step-2').find('.step-gray-2').css('border', '2px solid #b6b6b6');
+            });
+            $('#next_button_2').click(function () {
+                // Change step 2 text color to gray
+                $('#step-2 .step-gray').css('color', '#b6b6b6');
+                $('#step-2 .step-gray-2').css('border', '2px solid #b6b6b6');
+                $('#step-2 .number-gray').css('color', '#b6b6b6');
 
-                        // เปลี่ยนสี text ของขั้นตอนที่ปัจจุบัน
-                        let currentStepText = document.querySelector(
-                            '.step-text'
-                        );
-                        if (currentStepText) {
-                            currentStepText.classList.add("step-gray");
-                        }
-
-                        let currentNumber = document.querySelector(
-                            '.number'
-                        );
-                        currentNumber.classList.add('number-gray');
-                        currentNumber.classList.remove('number');
-                        // เพิ่ม currentStep เพื่อนำไปที่ step ถัดไป
-                        currentStep++;
-
-                        // เปลี่ยน step ใหม่ให้เป็น active
-                        let nextStepElement = document.querySelector(
-                            '.step'
-                        );
-                        nextStepElement.classList.remove("step-gray-2");
-
-                        // เปลี่ยนสี text ของขั้นตอนถัดไป
-                        let nextStepText = document.querySelector(
-                            '.step-text'
-                        );
-                        nextStepText.classList.remove("step-gray");
-                    
-                        let nextNumber = document.querySelector(
-                            '.number'
-                        );
-                        nextNumber.classList.remove('number-gray');
-                    }
-                });
+                // Change step 3 text color to blue
+                $('#step-3').prev().css('color', '#0D5263');
+                $('#step-3').find('.number-gray').css('color', '#0D5263');
+                $('#step-3').find('.step-gray').css('color', '#0D5263');
+                $('#step-3').find('.step-gray-2').css('border', ' 2px solid #0D5263');
+            });
         });
+
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Initial setup - Show page 1 and hide page 2
             document.getElementById('page1').style.display = 'block';
             document.getElementById('page2').style.display = 'none';
-
+            document.getElementById('page3').style.display = 'none';
             // Event listener for the "ถัดไป" button
             document.querySelector(".next-button").addEventListener("click", function () {
-                // Hide page 1 and show page 2
                 document.getElementById('page1').style.display = 'none';
                 document.getElementById('page2').style.display = 'block';
+                document.getElementById('page3').style.display = 'none';
+            });
+            document.getElementById('next_button_2').addEventListener("click", function () {
+                document.getElementById('page1').style.display = 'none';
+                document.getElementById('page2').style.display = 'none';
+                document.getElementById('page3').style.display = 'block';
+            })
+            document.getElementById('prev_button').addEventListener("click", function () {
+                // Check which page is currently displayed and navigate back
+                if (document.getElementById('page3').style.display === 'block') {
+                    // If currently on page 3, go back to page 2
+                    document.getElementById('page3').style.display = 'none';
+                    document.getElementById('page2').style.display = 'block';
+                    document.getElementById('page1').style.display = 'none';
+                } else if (document.getElementById('page2').style.display === 'block') {
+                    // If currently on page 2, go back to page 1
+                    document.getElementById('page2').style.display = 'none';
+                    document.getElementById('page1').style.display = 'block';
+                    document.getElementById('page3').style.display = 'none';
+                }
             });
         });
     </script>
