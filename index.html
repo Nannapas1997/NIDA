@@ -201,16 +201,16 @@
                                 $('#step-2').find('.step-gray').css('color', '#0D5263');
                                 $('#step-2').find('.step-gray-2').css('border', ' 2px solid #0D5263');
                             }
-                            
+
                         });
-                        $('#next_button_2').on('click', function() {
-                            if(!validatePage2()) {
+                        $('#next_button_2').on('click', function () {
+                            if (!validatePage2()) {
                                 $('#page1').hide();
                                 $('#page2').show();
                                 $('#page3').hide();
                                 alert("กรุณากรอกข้อมูลในทุกช่องที่จำเป็น");
                                 return;
-                            }else {
+                            } else {
                                 $('#page1').hide();
                                 $('#page2').hide();
                                 $('#page3').show();
@@ -224,15 +224,15 @@
                                 $('#step-3').find('.step-gray').css('color', '#0D5263');
                                 $('#step-3').find('.step-gray-2').css('border', ' 2px solid #0D5263');
                             }
-                            
+
                         });
-                        $('#confirm_button').on('click', function(){
-                            if(!validatePage3()) {
+                        $('#confirm_button').on('click', function () {
+                            if (!validatePage3()) {
                                 $('#page1').hide();
                                 $('#page2').hide();
                                 $('#page3').show();
                                 alert("กรุณากรอกข้อมูลในทุกช่องที่จำเป็น")
-                            }else {
+                            } else {
                                 $('#multiPageForm').submit();
                             }
                         })
@@ -408,20 +408,30 @@
                                     const currentAddressRadio = document.querySelector('#current-address input[type="radio"]');
                                     const otherAddressRadio = document.querySelector('#other-address input[type="radio"]');
                                     const otherAddressDiv = document.getElementById('other-adrress-2');
+                                    const otherAddressInputs = otherAddressDiv.querySelectorAll('input, select');
 
-                                    // Initially hide the "other address" div
+                                    // Initially hide the "other address" div and remove required attributes
                                     otherAddressDiv.style.display = 'none';
+                                    otherAddressInputs.forEach(input => {
+                                        input.required = false;
+                                    });
 
                                     // Add event listeners to the radio buttons
                                     currentAddressRadio.addEventListener('change', function () {
                                         if (currentAddressRadio.checked) {
                                             otherAddressDiv.style.display = 'none';
+                                            otherAddressInputs.forEach(input => {
+                                                input.required = false; // Remove required attribute
+                                            });
                                         }
                                     });
 
                                     otherAddressRadio.addEventListener('change', function () {
                                         if (otherAddressRadio.checked) {
                                             otherAddressDiv.style.display = 'block';
+                                            otherAddressInputs.forEach(input => {
+                                                input.required = true; // Add required attribute
+                                            });
                                         }
                                     });
                                 });
@@ -650,12 +660,12 @@
     </script>
     <script>
         $(document).ready(function () {
-			// Initialize Bootstrap Datepicker for both inputs
-			$('input[name="birth_date"]').datepicker({
-				format: 'mm/dd/yyyy',
-				autoclose: true,
-				todayHighlight: true
-			});
+            // Initialize Bootstrap Datepicker for both inputs
+            $('input[name="birth_date"]').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
         });
     </script>
 
