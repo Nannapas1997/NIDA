@@ -115,3 +115,116 @@ p {
 input[type="file"] {
     display: none !important;
 }
+
+@media screen and (max-width: 431px) {
+    body {
+        background-color: #fff;
+    }
+    .number, .number-gray {
+        font-size: 20px;
+    }
+    .step-text, .step-gray {
+        font-size: 10px;
+    }
+    .step, .step-gray-2 {
+        width: 32px;
+        height: 32px;
+    }
+    .next-icon {
+        width: 60px;
+        height: 32px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .detail {
+        background: linear-gradient(to right, #a0d8ef, #005f73);
+        color: #0D5263;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+    }
+    .sign-up-text{
+        font-size: 24px;
+    }
+    .box {
+        background-color: #fff;
+        position: relative;
+        z-index: 1;
+        margin: 0rem !important;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    body {
+        background-color: #fff;
+    }
+    .number, .number-gray {
+        font-size: 20px;
+    }
+    .step-text, .step-gray {
+        font-size: 10px;
+    }
+    .step, .step-gray-2 {
+        width: 32px;
+        height: 32px;
+    }
+    .next-icon {
+        width: 60px;
+        height: 32px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .sign-up-text{
+        font-size: 30px;
+    }
+    .detail {
+        background: linear-gradient(to right, #a0d8ef, #005f73);
+        color: #0D5263;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+    }
+    .box {
+        background-color: #fff;
+        position: relative;
+        z-index: 1;
+        margin: 0rem !important;
+    }
+}
+@media screen and (min-width: 542px) and (max-width: 767px) {
+    .number, .number-gray {
+        font-size: 20px;
+    }
+    .step-text, .step-gray {
+        font-size: 10px;
+    }
+    .step, .step-gray-2 {
+        width: 32px;
+        height: 32px;
+    }
+    .next-icon {
+        width: 60px;
+        height: 32px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .sign-up-text{
+        font-size: 30px;
+    }
+    .detail {
+        background: linear-gradient(to right, #a0d8ef, #005f73);
+        color: #0D5263;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+    }
+}
