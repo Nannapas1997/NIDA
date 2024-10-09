@@ -204,8 +204,38 @@
                             
                         });
                         $('#next_button_2').on('click', function() {
+                            if(!validatePage2()) {
+                                $('#page1').hide();
+                                $('#page2').show();
+                                $('#page3').hide();
+                                alert("กรุณากรอกข้อมูลในทุกช่องที่จำเป็น");
+                                return;
+                            }else {
+                                $('#page1').hide();
+                                $('#page2').hide();
+                                $('#page3').show();
+                                $('#step-2 .step-gray').css('color', '#b6b6b6');
+                                $('#step-2 .step-gray-2').css('border', '2px solid #b6b6b6');
+                                $('#step-2 .number-gray').css('color', '#b6b6b6');
+
+                                // Change step 3 text color to blue
+                                $('#step-3').prev().css('color', '#0D5263');
+                                $('#step-3').find('.number-gray').css('color', '#0D5263');
+                                $('#step-3').find('.step-gray').css('color', '#0D5263');
+                                $('#step-3').find('.step-gray-2').css('border', ' 2px solid #0D5263');
+                            }
                             
                         });
+                        $('#confirm_button').on('click', function(){
+                            if(!validatePage3()) {
+                                $('#page1').hide();
+                                $('#page2').hide();
+                                $('#page3').show();
+                                alert("กรุณากรอกข้อมูลในทุกช่องที่จำเป็น")ว
+                            }else {
+                                $('#multiPageForm').submit();
+                            }
+                        })
                         // Validation function for Page 1
                         function validatePage1() {
                             let isValid = true;
@@ -228,7 +258,7 @@
                             let isValid2 = true;
 
                             // Select all required input and select fields in Page 1
-                            $('#page2 input[required], #page1 select[required]').each(function () {
+                            $('#page2 input[required], #page2 select[required]').each(function () {
                                 if (!$(this).val().trim()) {
                                     isValid2 = false;
                                     // Optionally add a red border to highlight the empty field
@@ -530,32 +560,6 @@
     </div>
     <script>
         $(document).ready(function () {
-            // $('#next_button').click(function () {
-            //     // Change step 1 text color to gray
-
-
-            //         $('#step-1 .step-text').css('color', '#0D5263');
-            //         $('#step-1 .step').css('border', '2px solid #0D5263');
-            //         $('#step-1 .number').css('color', '#0D5263');
-
-
-            //         $('#step-2').prev().css('color', '#b6b6b6');
-            //         $('#step-2').find('.number-gray').css('color', '#b6b6b6');
-            //         $('#step-2').find('.step-gray').css('color', '#b6b6b6');
-            //         $('#step-2').find('.step-gray-2').css('border', ' 2px solid #b6b6b6');
-
-
-
-            //         $('#step-1 .step-text').css('color', '#b6b6b6');
-            //         $('#step-1 .step').css('border', '2px solid #b6b6b6');
-            //         $('#step-1 .number').css('color', '#b6b6b6');
-
-            //         // Change step 2 text color to blue
-            //         $('#step-2').prev().css('color', '#0D5263');
-            //         $('#step-2').find('.number-gray').css('color', '#0D5263');
-            //         $('#step-2').find('.step-gray').css('color', '#0D5263');
-            //         $('#step-2').find('.step-gray-2').css('border', ' 2px solid #0D5263');
-            // });
             $('#prev_button').click(function () {
                 // Change step 1 text color to gray
                 $('#step-1 .step-text').css('color', '#0D5263');
@@ -570,15 +574,15 @@
             });
             $('#next_button_2').click(function () {
                 // Change step 2 text color to gray
-                $('#step-2 .step-gray').css('color', '#b6b6b6');
-                $('#step-2 .step-gray-2').css('border', '2px solid #b6b6b6');
-                $('#step-2 .number-gray').css('color', '#b6b6b6');
+                // $('#step-2 .step-gray').css('color', '#b6b6b6');
+                // $('#step-2 .step-gray-2').css('border', '2px solid #b6b6b6');
+                // $('#step-2 .number-gray').css('color', '#b6b6b6');
 
-                // Change step 3 text color to blue
-                $('#step-3').prev().css('color', '#0D5263');
-                $('#step-3').find('.number-gray').css('color', '#0D5263');
-                $('#step-3').find('.step-gray').css('color', '#0D5263');
-                $('#step-3').find('.step-gray-2').css('border', ' 2px solid #0D5263');
+                // // Change step 3 text color to blue
+                // $('#step-3').prev().css('color', '#0D5263');
+                // $('#step-3').find('.number-gray').css('color', '#0D5263');
+                // $('#step-3').find('.step-gray').css('color', '#0D5263');
+                // $('#step-3').find('.step-gray-2').css('border', ' 2px solid #0D5263');
             });
             $('#prev_button_2').click(function () {
                 $('#step-3 .step-gray').css('color', '#b6b6b6');
